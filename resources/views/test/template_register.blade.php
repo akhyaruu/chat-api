@@ -36,6 +36,12 @@
                                     id="input-password" placeholder="Password" autocomplete="off" required>
                                 <label for="input-password">Password</label>
                             </div>
+                            <div class="form-floating mb-3">
+                                <input name="password_confirmation" type="password" class="form-control rounded-3"
+                                    id="input-password-confirmation" placeholder="Confirm Password" autocomplete="off"
+                                    required>
+                                <label for="input-password-confirmation">Confirm Password</label>
+                            </div>
                             <button type="submit" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary">Register</button>
                         </form>
                         <hr class="my-2">

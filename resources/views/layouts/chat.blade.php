@@ -35,12 +35,18 @@
                                                 data-bs-target="#modal-new-chat">
                                                 <i class="fa-solid fa-comment-medical"></i>
                                             </button>
-                                            <button class="btn btn-danger"
-                                                onclick="return confirm('Apakah kamu yakin ingin keluar?')">
+                                            <a href="#" class="btn btn-danger"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 <i class="fa-solid fa-right-from-bracket"></i>
-                                            </button>
+                                            </a>
                                         </div>
                                         <!-- end search component -->
+
+                                        <!-- form logout -->
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none"> @csrf
+                                        </form>
+                                        <!-- end form logout -->
 
                                         <!-- chat list -->
                                         <div style="position: relative; max-height: 400px;" class="overflow-auto">

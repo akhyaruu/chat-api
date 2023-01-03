@@ -6,18 +6,23 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        return view('layouts.chat');
+    }
+
     public function tesChat()
     {
-        return view('tes-chat');
+        return view('test.template_chat');
     }
 
     public function tesLogin()
     {
-        return view('tes-login');
+        return view('test.template_login');
     }
 
     public function tesRegister()
     {
-        return view('tes-register');
+        return view('test.template_register');
     }
 }

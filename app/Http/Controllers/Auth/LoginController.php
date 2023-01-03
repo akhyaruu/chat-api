@@ -48,4 +48,9 @@ class LoginController extends Controller
     {
         return ['phone_number' => $request->get('phone_number'), 'password' => $request->get('password')];
     }
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
 }
