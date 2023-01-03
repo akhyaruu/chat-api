@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
-    <title>Tes</title>
+    <title>Chat</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                                         <div class="input-group rounded mb-3">
                                             <input id="search" type="search" class="form-control rounded"
                                                 placeholder="Cari..." autocomplete="off" aria-label="search"
-                                                aria-describedby="search-addon" />
+                                                aria-describedby="search-addon" required />
                                             <span class="input-group-text border-0" id="search-addon"
                                                 style="cursor: pointer;">
                                                 <i class="fas fa-search"></i>
@@ -34,6 +34,10 @@
                                             <button class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#modal-new-chat">
                                                 <i class="fa-solid fa-comment-medical"></i>
+                                            </button>
+                                            <button class="btn btn-danger"
+                                                onclick="return confirm('Apakah kamu yakin ingin keluar?')">
+                                                <i class="fa-solid fa-right-from-bracket"></i>
                                             </button>
                                         </div>
                                         <!-- end search component -->
@@ -254,7 +258,7 @@
                                     <div
                                         class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2">
                                         <input type="text" class="form-control form-control-md" id="message-input"
-                                            placeholder="Ketik pesan..." autocomplete="off">
+                                            placeholder="Ketik pesan..." autocomplete="off" required>
                                         <a class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
                                     </div>
                                     <!-- end message component -->
@@ -281,8 +285,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                     </div>
                     <div class="modal-body">
-                        <input type="text" class="form-control" placeholder="Masukan nomor telepon" autocomplete="off"
-                            required>
+                        <input name="phone_number" type="text" class="form-control" placeholder="Masukan nomor telepon"
+                            autocomplete="off" required>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Tambah</button>

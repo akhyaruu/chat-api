@@ -24,4 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/tes', [UserController::class, 'tes']);
+Route::get('/tes/chat', [UserController::class, 'tesChat']);
+Route::get('/tes/login', [UserController::class, 'tesLogin']);
+Route::get('/tes/register', [UserController::class, 'tesRegister']);
