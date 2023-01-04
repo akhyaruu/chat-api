@@ -4,7 +4,7 @@
     <span wire:click="search" class="input-group-text border-0" id="search-addon" style="cursor: pointer;">
         <i class="fas fa-search"></i>
     </span>
-    <button wire:click="chat" class="btn btn-primary">
+    <button wire:click="startChat" class="btn btn-primary">
         <i class="fa-solid fa-comment-medical"></i>
     </button>
     <a href="#" class="btn btn-danger"

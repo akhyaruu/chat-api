@@ -54,9 +54,22 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-         const messageBody = document.querySelector('#conversations');
-         messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
-      });
+            let container = document.querySelector('#conversations');
+
+            window.addEventListener('DOMContentLoaded', (event) => {
+                container.scrollTop = container.scrollHeight;
+            })
+
+            window.addEventListener('scrollDown', (event) => {
+                Livewire.hook('message.processed', (message, component) => {
+                    if (container.scrollTop + container.clientHeight + 100 < container.scrollHeight) {
+                        return;
+                    }
+                    container.scrollTop = container.scrollHeight;
+                })
+                container.scrollTop = container.scrollHeight;
+            })
+        });
     </script>
     @livewireScripts
     <!-- end script -->

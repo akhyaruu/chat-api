@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ChatList extends Component
 {
-    public $user;
+    public $userAvailable;
 
     protected $listeners = ['search'];
 
@@ -20,9 +20,9 @@ class ChatList extends Component
     {
         $user = User::where('phone_number', '=', $query)->first();
         if ($user) {
-            $this->user = 'ada';
+            $this->userAvailable = 'ada';
         } else {
-            $this->user = 'tidak ada';
+            $this->userAvailable = 'tidak ada';
         }
     }
 }

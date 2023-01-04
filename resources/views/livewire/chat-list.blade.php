@@ -1,20 +1,26 @@
 <div style="position: relative; max-height: 447px;" class="overflow-auto">
     <ul class="list-unstyled mb-0">
 
-        @if ($user === 'ada')
-        <li class="p-2 border-bottom">
-            <div class="alert alert-info" role="alert">
+        @if ($userAvailable == 'ada')
+        <li class="p-2">
+            <div class="alert alert-success" role="alert">
                 Nomor ditemukan. Kamu dapat memulai percakapan
                 dengan menekan tombol berwarna biru di atas.
             </div>
         </li>
-        @elseif ($user === 'tidak ada')
-        <li class="p-2 border-bottom">
+        @elseif ($userAvailable == 'tidak ada')
+        <li class="p-2">
             <div class="alert alert-warning" role="alert">
                 Nomor tidak ditemukan.
             </div>
         </li>
         @endif
+
+        <div class="card mx-2 mb-2 bg-primary text-white">
+            <div class="card-body">
+                <b>Halo!</b> {{ Auth::user()->name }}
+            </div>
+        </div>
 
 
 

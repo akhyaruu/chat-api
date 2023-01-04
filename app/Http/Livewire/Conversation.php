@@ -12,7 +12,7 @@ class Conversation extends Component
     public $user;
     public $messageText;
 
-    protected $listeners = ['conversation'];
+    protected $listeners = ['conversation', 'refreshComponent' => '$refresh'];
 
     protected $rules = [
         'messageText' => 'required',
@@ -20,6 +20,22 @@ class Conversation extends Component
 
     public function render()
     {
+        $user = $this->user;
+
+        if ($user) {
+            $chat = Chat::where(function ($query) use ($user) {
+                $query->where('sender_id', Auth::id())->where('recipient_id', $user['id']);
+            })->orWhere(function ($query) use ($user) {
+                $query->where('sender_id', $user['id'])->where('recipient_id', Auth::id());
+            })->get();
+
+            $this->chat = $chat;
+        }
+
+        if ($this->chat) {
+            $this->chat = $chat;
+        }
+
         return view('livewire.conversation');
     }
 
@@ -34,29 +50,22 @@ class Conversation extends Component
         })->get();
 
         $this->chat = $chat;
+        $this->dispatchBrowserEvent('scrollDown');
     }
 
     public function submit()
     {
-        $this->validate();
-        // Execution doesn't reach here if validation fails.
+        $this->validate(); // apabila gagal maka kode di bawah tidak akan di eksekusi
 
-        $user = $this->user;
         Chat::create([
             'sender_id' => Auth::id(),
-            'recipient_id' => $user['id'],
+            'recipient_id' => $this->user['id'],
             'content' => $this->messageText,
-            'status' => 'unread'
+            'status' => 'unread',
         ]);
 
         $this->reset('messageText');
-
-        $chat = Chat::where(function ($query) use ($user) {
-            $query->where('sender_id', Auth::id())->where('recipient_id', $user['id']);
-        })->orWhere(function ($query) use ($user) {
-            $query->where('sender_id', $user['id'])->where('recipient_id', Auth::id());
-        })->get();
-
-        $this->chat = $chat;
+        $this->dispatchBrowserEvent('scrollDown');
+        $this->emit('refreshComponent');
     }
 }

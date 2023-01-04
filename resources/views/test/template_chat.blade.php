@@ -53,18 +53,26 @@
                                             <ul class="list-unstyled mb-0">
 
                                                 <!-- alert -->
-                                                <li class="p-2 border-bottom">
-                                                    <div class="alert alert-info" role="alert">
+                                                <li class="p-2">
+                                                    <div class="alert alert-success" role="alert">
                                                         Nomor ditemukan. Kamu dapat memulai percakapan
                                                         dengan menekan tombol berwarna biru di atas.
                                                     </div>
                                                 </li>
-                                                <li class="p-2 border-bottom">
+                                                <li class="p-2">
                                                     <div class="alert alert-warning" role="alert">
                                                         Nomor tidak ditemukan.
                                                     </div>
                                                 </li>
                                                 <!-- end alert -->
+
+                                                <!-- card user auth -->
+                                                <div class="card mx-2 mb-2 bg-primary text-white">
+                                                    <div class="card-body">
+                                                        <b>Halo!</b> Ilham Akhyar
+                                                    </div>
+                                                </div>
+                                                <!-- end card user auth -->
 
                                                 <li class="p-2 border-bottom">
                                                     <a href="#!" class="d-flex justify-content-between">
