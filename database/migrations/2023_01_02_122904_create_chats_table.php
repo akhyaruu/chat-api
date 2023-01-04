@@ -18,7 +18,7 @@ class CreateChatsTable extends Migration
             $table->foreignId('sender_id')->constrained('users');
             $table->foreignId('recipient_id')->constrained('users');
             $table->text('content');
-            $table->string('status', 10); # 'read' or 'unread'
+            $table->string('status', 10)->nullable(); # 'read' or 'unread'
             $table->timestamps();
         });
     }

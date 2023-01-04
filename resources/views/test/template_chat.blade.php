@@ -31,11 +31,10 @@
                                                 style="cursor: pointer;">
                                                 <i class="fas fa-search"></i>
                                             </span>
-                                            <button class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#modal-new-chat">
+                                            <button class="btn btn-primary">
+                                                <!-- ini dulu modal button -->
                                                 <i class="fa-solid fa-comment-medical"></i>
                                             </button>
-
                                             <a href="#" class="btn btn-danger"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 <i class="fa-solid fa-right-from-bracket"></i>
@@ -52,6 +51,20 @@
                                         <!-- chat list -->
                                         <div style="position: relative; max-height: 447px;" class="overflow-auto">
                                             <ul class="list-unstyled mb-0">
+
+                                                <!-- alert -->
+                                                <li class="p-2 border-bottom">
+                                                    <div class="alert alert-info" role="alert">
+                                                        Nomor ditemukan. Kamu dapat memulai percakapan
+                                                        dengan menekan tombol berwarna biru di atas.
+                                                    </div>
+                                                </li>
+                                                <li class="p-2 border-bottom">
+                                                    <div class="alert alert-warning" role="alert">
+                                                        Nomor tidak ditemukan.
+                                                    </div>
+                                                </li>
+                                                <!-- end alert -->
 
                                                 <li class="p-2 border-bottom">
                                                     <a href="#!" class="d-flex justify-content-between">
@@ -204,7 +217,7 @@
                                                     dolore
                                                     magna aliqua.</p>
                                                 <p class="small ms-3 mb-3 rounded-3 text-muted float-end">12:00 PM | Aug
-                                                    13 <i class="fa-solid fa-check-double"></i></p>
+                                                    13 </p>
                                             </div>
                                         </div>
 
@@ -215,7 +228,8 @@
                                                     quis
                                                     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                                                     consequat.</p>
-                                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
+                                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13 <i
+                                                        class="fa-solid fa-check-double"></i></p>
                                             </div>
                                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                                                 alt="avatar 1" style="width: 45px; height: 100%;">
@@ -233,7 +247,7 @@
                                                     fugiat nulla pariatur.
                                                 </p>
                                                 <p class="small ms-3 mb-3 rounded-3 text-muted float-end">12:00 PM | Aug
-                                                    13 <i class="fa-solid fa-check"></i></p>
+                                                    13</p>
                                             </div>
                                         </div>
 
@@ -246,7 +260,8 @@
                                                     magni dolores eos
                                                     qui
                                                     ratione voluptatem sequi nesciunt.</p>
-                                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13</p>
+                                                <p class="small me-3 mb-3 rounded-3 text-muted">12:00 PM | Aug 13 <i
+                                                        class="fa-solid fa-check"></i></p>
                                             </div>
                                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                                                 alt="avatar 1" style="width: 45px; height: 100%;">
@@ -288,7 +303,7 @@
     </section>
 
 
-    <!-- modal -->
+    <!-- modal new chat -->
     <div class="modal fade" id="modal-new-chat" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -309,7 +324,7 @@
             </div>
         </div>
     </div>
-    <!-- modal -->
+    <!-- end modal new chat -->
 
     <!-- script -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
