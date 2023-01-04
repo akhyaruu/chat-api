@@ -35,6 +35,7 @@
                                                 data-bs-target="#modal-new-chat">
                                                 <i class="fa-solid fa-comment-medical"></i>
                                             </button>
+
                                             <a href="#" class="btn btn-danger"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 <i class="fa-solid fa-right-from-bracket"></i>
@@ -49,7 +50,7 @@
                                         <!-- end form logout -->
 
                                         <!-- chat list -->
-                                        <div style="position: relative; max-height: 400px;" class="overflow-auto">
+                                        <div style="position: relative; max-height: 447px;" class="overflow-auto">
                                             <ul class="list-unstyled mb-0">
 
                                                 <li class="p-2 border-bottom">
@@ -180,6 +181,13 @@
 
                                 <!-- conversation -->
                                 <div class="col-md-6 col-lg-7 col-xl-8">
+
+                                    <nav class="navbar navbar-expand-md">
+                                        <div class="container-fluid">
+                                            <a class="navbar-brand" href="#">Marie Horwitz</a>
+                                        </div>
+                                    </nav>
+
                                     <div id="conversations" class="pt-3 pe-3 overflow-auto"
                                         style="position: relative; max-height: 400px;">
 
