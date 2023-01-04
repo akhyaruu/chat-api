@@ -25,11 +25,9 @@
 
                                         @livewire('search')
 
-                                        <!-- form logout -->
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             class="d-none"> @csrf
                                         </form>
-                                        <!-- end form logout -->
 
                                         @livewire('chat-list')
                                     </div>

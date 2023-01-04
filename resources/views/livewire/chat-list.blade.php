@@ -1,4 +1,4 @@
-<div style="position: relative; max-height: 447px;" class="overflow-auto">
+<div style="position: relative; height: 447px;" class="overflow-auto">
     <ul class="list-unstyled mb-0">
 
         @if ($userAvailable == 'ada')
@@ -23,7 +23,8 @@
         </div>
 
 
-
+        @if (is_array($chatList) || is_object($chatList))
+        @foreach ($chatList as $item)
         <li class="p-2 border-bottom">
             <a href="#!" class="d-flex justify-content-between">
                 <div class="d-flex flex-row">
@@ -33,107 +34,21 @@
                         <span class="badge bg-success badge-dot"></span>
                     </div>
                     <div class="pt-1">
-                        <p class="fw-bold mb-0">Marie Horwitz</p>
-                        <p class="small text-muted">Hello, Are you there?</p>
+                        <p class="fw-bold mb-0">{{ $item['name'] }}</p>
+                        <p class="small text-muted">
+                            {{ strlen($item['content']) > 20 ? substr($item['content'],0,20)."..." : $item['content'] }}
+                        </p>
                     </div>
                 </div>
                 <div class="pt-1">
-                    <p class="small text-muted mb-1">Just now</p>
-                    <span class="badge bg-danger rounded-pill float-end">3</span>
+                    <p class="small text-muted mb-1">{{ date('d M', strtotime($item['created_at'].'01')) }}</p>
                 </div>
             </a>
         </li>
-        <li class="p-2 border-bottom">
-            <a href="#!" class="d-flex justify-content-between">
-                <div class="d-flex flex-row">
-                    <div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-                            alt="avatar" class="d-flex align-self-center me-3" width="60">
-                        <span class="badge bg-warning badge-dot"></span>
-                    </div>
-                    <div class="pt-1">
-                        <p class="fw-bold mb-0">Alexa Chung</p>
-                        <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                    </div>
-                </div>
-                <div class="pt-1">
-                    <p class="small text-muted mb-1">5 m ago</p>
-                    <span class="badge bg-danger rounded-pill float-end">2</span>
-                </div>
-            </a>
-        </li>
-        <li class="p-2 border-bottom">
-            <a href="#!" class="d-flex justify-content-between">
-                <div class="d-flex flex-row">
-                    <div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3-bg.webp"
-                            alt="avatar" class="d-flex align-self-center me-3" width="60">
-                        <span class="badge bg-success badge-dot"></span>
-                    </div>
-                    <div class="pt-1">
-                        <p class="fw-bold mb-0">Danny McChain</p>
-                        <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                    </div>
-                </div>
-                <div class="pt-1">
-                    <p class="small text-muted mb-1">Yesterday</p>
-                </div>
-            </a>
-        </li>
-        <li class="p-2 border-bottom">
-            <a href="#!" class="d-flex justify-content-between">
-                <div class="d-flex flex-row">
-                    <div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava4-bg.webp"
-                            alt="avatar" class="d-flex align-self-center me-3" width="60">
-                        <span class="badge bg-danger badge-dot"></span>
-                    </div>
-                    <div class="pt-1">
-                        <p class="fw-bold mb-0">Ashley Olsen</p>
-                        <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                    </div>
-                </div>
-                <div class="pt-1">
-                    <p class="small text-muted mb-1">Yesterday</p>
-                </div>
-            </a>
-        </li>
-        <li class="p-2 border-bottom">
-            <a href="#!" class="d-flex justify-content-between">
-                <div class="d-flex flex-row">
-                    <div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
-                            alt="avatar" class="d-flex align-self-center me-3" width="60">
-                        <span class="badge bg-warning badge-dot"></span>
-                    </div>
-                    <div class="pt-1">
-                        <p class="fw-bold mb-0">Kate Moss</p>
-                        <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                    </div>
-                </div>
-                <div class="pt-1">
-                    <p class="small text-muted mb-1">Yesterday</p>
-                </div>
-            </a>
-        </li>
-        <li class="p-2 border-bottom">
-            <a href="#!" class="d-flex justify-content-between">
-                <div class="d-flex flex-row">
-                    <div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava5-bg.webp"
-                            alt="avatar" class="d-flex align-self-center me-3" width="60">
-                        <span class="badge bg-warning badge-dot"></span>
-                    </div>
-                    <div class="pt-1">
-                        <p class="fw-bold mb-0">Kate Moss</p>
-                        <p class="small text-muted">Lorem ipsum dolor sit.</p>
-                    </div>
-                </div>
-                <div class="pt-1">
-                    <p class="small text-muted mb-1">Yesterday</p>
-                </div>
-            </a>
-        </li>
+        @endforeach
+        @endif
+
+
 
     </ul>
 </div>

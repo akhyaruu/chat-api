@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Search extends Component
@@ -23,9 +24,9 @@ class Search extends Component
     {
         $this->validate();
         $user = User::where('phone_number', '=', $this->query)->first();
-        if ($user) {
+        if ($user && $user['id'] != Auth::id()) {
             $this->emit('conversation', $user);
+            $this->reset('query');
         }
-        $this->reset('query');
     }
 }

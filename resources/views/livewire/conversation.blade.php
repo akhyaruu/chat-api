@@ -10,8 +10,6 @@
 
     <div id="conversations" class="pt-3 pe-3 overflow-auto" style="position: relative; height: 400px;">
 
-
-
         @if (is_array($chat) || is_object($chat))
         @foreach ($chat as $item)
         @if ($item['sender_id'] == Auth::id())
@@ -20,7 +18,7 @@
                 <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">{{ $item['content'] }}</p>
                 <p class="small me-3 mb-3 rounded-3 text-muted">
                     {{ date('h:i A', strtotime($item['created_at'])) }} |
-                    {{ date('D', strtotime($item['created_at']))}}
+                    {{ date('D', strtotime($item['created_at'])) }}
                     @if ($item['status'] == 'unread')
                     <i class="fa-solid fa-check"></i>
                     @else
@@ -64,7 +62,7 @@
         <input wire:keydown.enter="submit" wire:model.defer="messageText" type="text"
             class="form-control form-control-md" id="message-input" placeholder="Ketik pesan..." autocomplete="off"
             required>
-        <a wire:click="submit" class="ms-3" href="#!"><i class="fas fa-paper-plane"></i></a>
+        <a style="cursor: pointer;" wire:click="submit" class="ms-3"><i class="fas fa-paper-plane"></i></a>
     </div>
     @endif
 </div>

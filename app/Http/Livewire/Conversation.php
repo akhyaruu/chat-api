@@ -55,7 +55,7 @@ class Conversation extends Component
 
     public function submit()
     {
-        $this->validate(); // apabila gagal maka kode di bawah tidak akan di eksekusi
+        $this->validate(); # apabila gagal maka kode di bawah tidak akan di eksekusi
 
         Chat::create([
             'sender_id' => Auth::id(),
