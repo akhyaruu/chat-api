@@ -67,5 +67,6 @@ class Conversation extends Component
         $this->reset('messageText');
         $this->dispatchBrowserEvent('scrollDown');
         $this->emit('refreshComponent');
+        $this->emit('refreshComponentChatList');
     }
 }

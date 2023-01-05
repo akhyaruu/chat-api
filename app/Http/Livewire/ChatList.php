@@ -11,8 +11,13 @@ class ChatList extends Component
 {
     public $userAvailable;
     public $chatList;
+    public $phoneNumber;
 
-    protected $listeners = ['search', 'conversation', 'refreshComponent' => '$refresh'];
+    protected $listeners = ['search', 'conversation', 'refreshComponentChatList' => '$refresh'];
+
+    protected $rules = [
+        'phoneNumber' => 'required',
+    ];
 
     public function render()
     {
@@ -21,7 +26,6 @@ class ChatList extends Component
             ->where('sender_id', '!=', Auth::id())
             ->where('recipient_id', '=', Auth::id())
             ->latest('chats.created_at')->get()->toArray();
-
 
         $latestChatList = [];
         $groupedChatList = array_group_by($chatList, 'sender_id'); # composer require mcaskill/php-array-group-by
@@ -50,6 +54,21 @@ class ChatList extends Component
     {
         if ($user) {
             $this->userAvailable = '';
+        }
+    }
+
+    public function chat($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+        $this->validate();
+
+        if (isset($this->phoneNumber)) {
+            $user = User::where('phone_number', '=', $this->phoneNumber)->first(); # cari sender
+            if ($user && $user['id'] != Auth::id()) {
+                Chat::where('sender_id', $user['id'])->where('recipient_id', Auth::id())->update(['status' => 'read']);
+                $this->emit('conversation', $user);
+                $this->reset('phoneNumber');
+            }
         }
     }
 }

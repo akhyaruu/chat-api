@@ -26,7 +26,8 @@
         @if (is_array($chatList) || is_object($chatList))
         @foreach ($chatList as $item)
         <li class="p-2 border-bottom">
-            <a href="#!" class="d-flex justify-content-between">
+            <a wire:click="chat({{ $item['phone_number'] }})" style="cursor: pointer"
+                class="d-flex justify-content-between">
                 <div class="d-flex flex-row">
                     <div>
                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
